@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, TypeGuard, cast, final
 from typing_extensions import override
 
 from configs import dify_config
-from core.app.llm.model_access import build_tenant_bound_access
+from core.app.llm.model_access import build_dify_model_access
 from core.helper.code_executor.code_executor import CodeExecutor
 from core.helper.code_executor.code_node_provider import CodeNodeProvider
 from core.helper.ssrf_proxy import ssrf_proxy
@@ -99,7 +99,7 @@ class DifyNodeFactory(NodeFactory):
             )
         )
 
-        self._llm_credentials_provider, self._llm_model_factory = build_tenant_bound_access(graph_init_params.tenant_id)
+        self._llm_credentials_provider, self._llm_model_factory = build_dify_model_access(graph_init_params.tenant_id)
 
     @override
     def create_node(self, node_config: NodeConfigDict) -> Node:
