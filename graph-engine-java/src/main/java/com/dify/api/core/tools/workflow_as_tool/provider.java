@@ -2,8 +2,6 @@ package com.dify.api.core.tools.workflow_as_tool;
 
 import com.dify.api.models.tools;
 import com.dify.api.models.workflow;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +18,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class provider {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private final String providerId;
     private List<WorkflowTool> tools = new ArrayList<>();
